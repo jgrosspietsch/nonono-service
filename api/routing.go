@@ -11,6 +11,14 @@ import (
 
 // SetupRoutes sets up all the routes for the API app
 func SetupRoutes(r *gin.Engine) {
+	// Health check handler
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "healthy!",
+		})
+	})
+
+	// API handlers
 	r.GET("/puzzle", puzzleHandler)
 }
 
