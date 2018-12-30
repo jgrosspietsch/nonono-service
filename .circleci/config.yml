@@ -40,7 +40,7 @@ jobs:
           command: |
             docker run -d -p 8888:8888 --name built-image $FULL_IMAGE_NAME
             sleep 10
-            docker run --network container:built-image appropriate/curl --retry --retry-connrefused http://localhost:8888/puzzle?height=5&width=5 | grep row_values
+            docker run --network container:built-image appropriate/curl --retry 10 --retry-connrefused http://localhost:8888/puzzle?height=5&width=5 | grep row_values
       - run:
           name: Save image to an archive
           command: |
