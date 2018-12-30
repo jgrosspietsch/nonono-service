@@ -8,7 +8,7 @@ jobs:
       # specify the version
       - image: circleci/golang:1.11.4
         environment:
-          GO111MODULE: "ON"
+          GO111MODULE: "on"
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
