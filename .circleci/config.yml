@@ -38,7 +38,7 @@ jobs:
       - run:
           name: Test image
           command: |
-            docker run -d -p 8080:8080 --name built-image $FULL_IMAGE_NAME
+            docker run -p 8080:8080 --name built-image $FULL_IMAGE_NAME
             sleep 10
             docker run --network container:built-image appropriate/curl --retry
       - run:
