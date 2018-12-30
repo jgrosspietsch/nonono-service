@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM ubuntu:latest
 
 COPY ./nonono-service /opt/nonono-service
 EXPOSE 8888
