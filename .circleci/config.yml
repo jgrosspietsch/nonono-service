@@ -61,7 +61,7 @@ jobs:
       - attach_workspace:
           at: workspace
       - restore_cache:
-          key: v1-{{ checksum "requirements.txt" }}
+          key: v1-{{ checksum "deploy/requirements.txt" }}
       - run:
           name: Install AWS CLI
           command: |
@@ -69,7 +69,7 @@ jobs:
             . venv/bin/activate
             pip install -r deploy/requirements.txt
       - save_cache:
-          key: v1-{{ checksum "requirements.txt" }}
+          key: v1-{{ checksum "deploy/requirements.txt" }}
           paths:
             - "venv"
       - run:
