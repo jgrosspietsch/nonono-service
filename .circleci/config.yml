@@ -38,9 +38,9 @@ jobs:
       - run:
           name: Test image
           command: |
-            docker run -i -d -p 8888:8888 --name built-image $FULL_IMAGE_NAME
+            docker run -d -p 8888:8888 --name built-image $FULL_IMAGE_NAME
             sleep 10
-            docker run --network container:built-image appropriate/curl --retry 10 --retry-connrefused http://localhost:8888/puzzle?height=5&width=5 | grep row_values
+            docker run --network container:built-image appropriate/curl --retry 10 --retry-connrefused http://localhost:8888/puzzle?height=5&width=5
       - run:
           name: Save image to an archive
           command: |
