@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Set container env vars
           command: |
-            echo 'export FULL_IMAGE_NAME="nonono-service:${CIRCLE_SHA1}"' >> $BASH_ENV
+            echo 'export FULL_IMAGE_NAME="$DOCKER_USER/nonono-service:${CIRCLE_SHA1}"' >> $BASH_ENV
       - run:
           name: Build image
           command: docker build -t $FULL_IMAGE_NAME .
@@ -29,7 +29,7 @@ jobs:
       - run:
           name: Push to Docker hub
           command: |
-            docker login --username $DOCKER_USER --password $DOCKER_PASS
+            echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
             docker push $FULL_IMAGE_NAME
             docker logout
 #   deploy:
