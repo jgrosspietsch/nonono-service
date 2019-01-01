@@ -11,7 +11,7 @@ var listenOn string
 var production bool
 
 func init() {
-	flag.StringVar(&listenOn, "listen", ":8080", "string passed into gin to listen on")
+	flag.StringVar(&listenOn, "listen", ":8888", "string passed into gin to listen on")
 	flag.BoolVar(&production, "prod", false, "are we running in production?")
 }
 
