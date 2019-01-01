@@ -31,7 +31,7 @@ jobs:
           command: |
             echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
             docker push $FULL_IMAGE_NAME
-            docker logout
+
 #   deploy:
 #     docker:
 #       - image: circleci/python:3.6.1
